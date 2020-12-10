@@ -1,0 +1,7 @@
+created: 20201210114314516
+modified: 20201210114854417
+tags: $:/tags/Macro
+title: $:/plugins/solarwind/custom/macro/publishFilter
+type: text/vnd.tiddlywiki
+
+\define publishFilter()  -[prefix[$:/temp/]!prefix[$:/temp/jd/mob/]] -[prefix[$:/state/]!prefix[$:/state/sidebar]]

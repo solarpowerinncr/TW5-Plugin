@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/solarwind/custom",
+	"description": "一些个性化设置",
+	"plugin-type": "plugin",	
+	"author": "solarwind",
+	"version": "0.1.0",
+	"core-version": ">=5.1.21",
+	"list": "readme",
+	"source": "https://github.com/solarpowerinncr/TW5-Plugin"
+}

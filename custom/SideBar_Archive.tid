@@ -1,0 +1,9 @@
+caption: 归档
+created: 20201210112537014
+list-after: $:/core/ui/SideBar/Recent
+modified: 20201210112827624
+tags: $:/tags/SideBar
+title: $:/plugins/solarwind/custom/SideBar/Archive
+type: text/vnd.tiddlywiki
+
+<<tabs "[tag[Archive]sort[created]]" "$:/users/Archive/2020" "$:/state/tab" "tc-vertical" >>

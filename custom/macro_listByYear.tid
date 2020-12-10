@@ -1,0 +1,44 @@
+caption: [Macro] Show tiddlers by year
+created: 20201210105855604
+modified: 20201210110747408
+tags: $:/tags/Macro
+title: $:/plugins/solarwind/custom/macro/listByYear
+type: text/vnd.tiddlywiki
+
+\define listByMonth(year, month)
+
+<!-- 通过ListWidget，当filter list存在时打印月份 -->
+<$list filter="[!is[shadow]!is[system]regexp:created[$year$$month$]limit[1]]">
+<div class="tc-menu-list-item">
+$year$年$month$月<br/>
+</div>
+
+<!-- 通过ListWidget，打印指定class的list -->
+</$list>
+<$list filter="[!is[shadow]!is[system]regexp:created[$year$$month$]!sort[created]]">
+<div class="tc-menu-list-item">
+<$link>&nbsp;&nbsp;<$view field="title"/></$link>
+</div>
+</$list>
+
+<!-- macros写法，不懂怎么设置class -->
+<!-- <<list-links "[!is[shadow]!is[system]regexp:created[$year$$month$]]" "tc-menu-list-item">> -->
+\end
+
+\define listByYear(year)
+<!-- 打印1到12月 -->
+<<listByMonth $year$ 12>>
+<<listByMonth $year$ 11>>
+<<listByMonth $year$ 10>>
+<<listByMonth $year$ 09>>
+<<listByMonth $year$ 08>>
+<<listByMonth $year$ 07>>
+<<listByMonth $year$ 06>>
+<<listByMonth $year$ 05>>
+<<listByMonth $year$ 04>>
+<<listByMonth $year$ 03>>
+<<listByMonth $year$ 02>>
+<<listByMonth $year$ 01>>
+\end
+
+用法：`<<listByYear 年份(四位数字)>>`

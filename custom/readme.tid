@@ -1,0 +1,29 @@
+title: $:/plugins/solarwind/custom/readme
+type: text/vnd.tiddlywiki
+
+此插件是我针对空白模板的一些个性化设置，包括：
+
+!!修改过的调色板
+$:/plugins/solarwind/custom/palette/SolarizedLight
+
+!!修改侧边栏，删除更多中的“最近”
+$:/core/ui/MoreSideBar/Recent
+
+!!添加归档侧边栏
+用法：添加每年归档条目`$:/users/Archive/2020`，打上`Archive`标签
+
+条目内容：
+
+```
+<<listByYear 2020>>
+```
+
+$:/plugins/solarwind/custom/macro/listByYear
+
+$:/plugins/solarwind/custom/SideBar/Archive
+
+!!添加目录
+$:/plugins/solarwind/custom/TOC
+
+!!修改SavingMechanism（保存机制）
+$:/plugins/solarwind/custom/macro/publishFilter
