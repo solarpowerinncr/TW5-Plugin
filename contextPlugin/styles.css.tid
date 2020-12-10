@@ -1,6 +1,6 @@
-created: 20140529162823729
+created: 20201210022442789
 tags: $:/tags/Stylesheet contextPlugin
-title: $:/plugins/danielo515/ContextPlugin/Stylesheet/results
+title: $:/plugins/solarwind/ContextPlugin/Stylesheet/results
 type: text/css
 
 .matched{background-color:yellow}

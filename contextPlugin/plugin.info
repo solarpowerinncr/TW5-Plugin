@@ -1,10 +1,10 @@
 {
-	"title": "$:/plugins/danielo515/ContextPlugin",
-	"description": "Context search - provides visual highlight of search results",
-	"author": "Danielo Rodrigez",
+	"title": "$:/plugins/solarwind/ContextPlugin",
+	"description": "显示上下文搜索 - 提供搜索结果的高亮预览",
+	"author": "solarwind",
 	"version": "2.1.0",
 	"core-version": ">=5.1.0",
-	"source": "https://github.com/danielo515/TW5-contextPlugin",
+	"source": "https://github.com/solarpowerinncr/TW5-Plugin",
 	"plugin-type": "plugin",
 	"list":"readme"
 }

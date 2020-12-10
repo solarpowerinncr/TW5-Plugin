@@ -1,9 +1,7 @@
-created: 20140418153435777
-creator: danielo
-modified: 20140530231943517
-modifier: danielo
+created: 20201210022442789
+creator: solarwind
 module-type: widget
-title: $:/plugins/danielo515/ContextPlugin/widgets/context.js
+title: $:/plugins/solarwind/ContextPlugin/widgets/context.js
 type: application/javascript
 
 /*\\
@@ -64,10 +62,12 @@ Compute the internal state of the widget
 contextWidget.prototype.execute = function() {
 	// Get the parameters from the attributes
     this.matchedClass = this.getAttribute("matchClass","matched");
-    this.minTermLength = this.getAttribute("min-term-length", 3);
+	//最小搜索长度 default 2
+    this.minTermLength = this.getAttribute("min-term-length", 2);
 	this.tiddler = this.getAttribute( "tiddler",this.getVariable("currentTiddler") );
     this.term =  this.getAttribute("term",this.getAttribute("searchTerm"));
-	this.contextLength = this.getAttribute("length",50);
+	//上下文显示长度 default 30
+	this.contextLength = this.getAttribute("length",30);
     this.before = this.getAttribute("before",this.contextLength);
     this.after = this.getAttribute("after",this.contextLength);
     this.maxMatches = this.getAttribute("maxMatches",10);
@@ -78,7 +78,8 @@ contextWidget.prototype.execute = function() {
   /*Create the regular expression*/
 contextWidget.prototype.createRegexp = function()
 {
-  var regString = "(\\w+[\\s\\S]{0,#before#})?(#term#)([\\s\\S]{0,#after#}\\w+)?";
+  //正则匹配规则
+  var regString = "(.{0,#before#})?(#term#)(.{0,#after#})?";
 
   var regString = regString.replace("#before#",this.before).replace("#term#", $tw.utils.escapeRegExp(this.term) ) .replace("#after#",this.after);
   this.regexp = new RegExp(regString,"ig");

@@ -1,21 +1,26 @@
-title: $:/plugins/danielo515/ContextPlugin/readme
-This widget works as regular search and shows the result with the searched word highlighted with some of its context.
+title: $:/plugins/solarwind/ContextPlugin/readme
+
+本插件fork自[[同名插件|https://github.com/danielo515/TW5-contextPlugin]]
+
+主要改动：
+
+修改正则表达式，适配中文，并修改默认的最小搜索长度和展示长度
 
 !Usage
 
-After installing the plugin you will have a new tab in [[$:/AdvancedSearch]] called [[Context Search]]. If you want this functionality in other places you will have to edit the desired tiddler yourself adding the ''context widget''. For more details about using the widget see the section below.
+安装后， [[$:/AdvancedSearch]] 中会出现一个新tab [[Context Search]]. 如果想在其他条目中使用此功能，你需要手动添加 ''context widget''，详情见下。
 
 !!Using the widget
 
-The very basic usage of the widget is the following:
+Widget的基本用法:
 
 ```
 <$context term="lorem"/>
 ```
-Which will render as:
+将渲染为:
 <$context term="lorem"/>
 
-The widgets will search inside the current tiddler by default. Because that you see the same content twice here. This example is not very useful. Other more meaningful would be:
+默认设置下，此Widget将在当前条目中进行搜索并展示。这个示例不是很有用，更实用的用法是:
 
 ```
 <$list filter="[search{$:/temp/advancedsearch}sort[title]limit[250]]">
@@ -24,19 +29,21 @@ The widgets will search inside the current tiddler by default. Because that you 
 </$list>
 ```
 
-That will search for tiddlers containing the text specified in [[$:/temp/advancedsearch]] and will display a link to the matching tiddlers plus a preview of the matching content. Something very similar is used in [[Context Search]]. Below you can find a complete list of parameters and their default values.
+这将搜索包含[[$:/temp/advancedsearch]]指定内容的条目，并展示匹配条目的链接和内容预览。这跟[[Context Search]]中的用法很相似。
 
-|! parameter |! description | !default |
-| term | The term you want to search ||
-| searchTerm | An alias for the previous one ||
-| tiddler | The tiddler's name to look into | current tiddler |
-| length | Number of context characters to show | 50 |
-| before | Number of characters before the matched term to show | the value of the length parameter |
-| after | Number of characters after the matched term to show | the value of the length parameter |
-| maxMatches | maximun number of matched elements to show. Incrementing this can cause several performance issues | 10 |
-| element | Node element to create. This element will contain the results of the search. If you want to style it its class is `tw-context` | `<pre>` |
-| matchClass | The css class to assign to the matched terms in the results. This is used to highlight the results | matched |
-| min-term-length | Minimum search length to display context | 3 |
+Widget支持的参数和默认值见下：
+
+|! 参数 |! 描述 | !默认值 |
+| term | 想要搜索的内容 ||
+| searchTerm | term的别名 ||
+| tiddler | 想要搜索的条目名称 | current tiddler |
+| length | 上下文展示长度 | 30 |
+| before | 匹配字符前的展示长度 | 同length的值 |
+| after | 匹配字符后的展示长度 | 同length的值 |
+| maxMatches | 匹配字符的最大展示数。增加此值可能会导致性能问题 | 10 |
+| element | 需创建的Node element，此element将包含搜索结果。如需css修改，class为`tw-context` | `<pre>` |
+| matchClass | 匹配字符的css class，用于高亮搜索结果 | matched |
+| min-term-length | 显示上下文的最小搜索长度 | 2 |
 
 !Customizing the output
 There are not many ways to customize the output of this widget. You can specify ''what type of node you want to create'' to wrap the results (div,span...). The default is `<pre>`. This container is created with the class `tw-context` so you can easily apply styles to it. Something similar happens to the ''highlighted'' words. You can specify the name of the class to assign to it and also you can apply styles to that class.
